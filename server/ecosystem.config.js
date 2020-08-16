@@ -2,11 +2,7 @@ require("dotenv").config({path: "env.deploy.production"});
 
 module.exports = {
   apps : [{
-    script: 'index.js',
-    watch: '.'
-  }, {
-    script: './service-worker/',
-    watch: ['./service-worker']
+    script: './server/index.js'
   }],
 
   deploy : {
