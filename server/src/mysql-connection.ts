@@ -7,7 +7,7 @@ export class MysqlConnection {
         this.connection = mysql.createPool({
             host: process.env.HOST,
             user: process.env.USER,
-            passworD: process.env.PASSWORD,
+            password: process.env.PASSWORD,
             waitForConnections: true,
             multipleStatements: true,
             connectionLimit: 10,
