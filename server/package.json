@@ -1,0 +1,20 @@
+{
+  "name": "mysql-playground-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "./node_modules/.bin/ts-node index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.26",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "fastify": "^3.1.1",
+    "fastify-cors": "^4.1.0",
+    "mysql2": "^2.1.0",
+    "mysql2-promise": "^0.1.4"
+  }
+}

@@ -1,0 +1,3 @@
+# MYSQL Playground
+
+Happy SQL !

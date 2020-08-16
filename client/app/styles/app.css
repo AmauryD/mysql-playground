@@ -1,0 +1,8 @@
+#row-query {
+    max-height: 30vh;
+}
+
+#row-query > div {
+    max-height: inherit;
+    overflow: auto;
+}

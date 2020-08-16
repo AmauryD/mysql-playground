@@ -1,0 +1,75 @@
+<!-- As a heading -->
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">Sql playground by Triptyk</span>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <h2>Bases de données </h2>
+    </div>
+    <div class="row">
+        {{#each this.model.databases as |database|}}
+            <div class="col-sm">
+                <button type="button" class="btn btn-primary w-100" {{on "click" (fn this.selectDatabase database)}}>{{database}}</button>
+            </div>
+        {{/each}}
+    </div>
+    <div class="row">
+        <div class="col-12 mt-2">
+            {{#if this.errorMsg}}
+                <div class="alert alert-danger" role="alert">
+                    {{this.errorMsg}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+    <div class="row" id="row-query">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="sql-input">SQL:</label>
+                <Textarea disabled={{if this.selectedDatabase false true}} class="form-control" rows="5" id="sql-input" @value={{this.query}}></Textarea>
+            </div> 
+            <div class="form-group">
+                <button class="btn btn-{{if this.canQuery "success" "warning"}}" disabled={{if this.canQuery false true}} type="button" {{on "click" (fn this.sendQuery this.query)}}>
+                    Envoyer
+                </button>
+            </div> 
+        </div>
+        <div class="col-md-4">
+            <h3>Tables</h3>
+            <ul class="list-group">
+                {{#each this.tables as |table|}}
+                    <li class="list-group-item">
+                        {{table}}
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Résultat</h3>
+            <table class="table">
+                <thead>
+                    <tr>    
+                    {{#each this.headers as |header|}}
+                        <th>
+                        {{header}}
+                        </th>
+                    {{/each}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each this.rows as |row|}}
+                        <tr>
+                            {{#each row as |data|}}
+                                <td>{{sql-data data}}</td>
+                            {{/each}}
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+  {{outlet}}
+</div>
