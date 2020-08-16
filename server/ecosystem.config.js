@@ -18,7 +18,7 @@ module.exports = {
       repo : 'https://github.com/AmauryD/mysql-playground.git',
       path : '/var/www/api/',
       'pre-deploy-local': '',
-      'post-deploy' : 'npm install && tsc && pm2 reload ecosystem.config.js --env production',
+      'post-deploy' : 'cd ./server && npm install && tsc && pm2 reload ecosystem.config.js --env production',
       'pre-setup': ''
     }
   }
