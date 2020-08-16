@@ -2,7 +2,12 @@ require("dotenv").config({path: "env.deploy.production"});
 
 module.exports = {
   apps : [{
-    script: './server/index.js'
+    script: './server/index.js',
+    env: {
+      "HOST": "localhost",
+      "USER": "cours",
+      "PASSWORD": "cours",
+    }
   }],
 
   deploy : {
