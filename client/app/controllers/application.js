@@ -9,7 +9,7 @@ export default class ApplicationController extends Controller {
     @tracked tables;
     @tracked result;
     @tracked errorMsg;
-    @tracked query = "SELECT * FROM articles";
+    @tracked query;
 
     @action
     async selectDatabase(database) {

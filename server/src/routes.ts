@@ -24,7 +24,7 @@ module.exports = (server : FastifyInstance,connection : MysqlConnection) => {
             .then(([rows,fields]:[any[],any[]]) => {
                 return rows[1];
             });
-        return rows;
+        return rows.slice(0,100);
     });
     
     server.listen(8080, (err, address) => {

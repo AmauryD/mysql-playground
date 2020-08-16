@@ -10,7 +10,11 @@
     <div class="row">
         {{#each this.model.databases as |database|}}
             <div class="col-sm">
-                <button type="button" class="btn btn-primary w-100" {{on "click" (fn this.selectDatabase database)}}>{{database}}</button>
+                {{#if (eq this.selectedDatabase database)}}
+                    <button type="button" class="btn btn-primary w-100" {{on "click" (fn this.selectDatabase database)}}>{{database}}</button>
+                {{else}}
+                    <button type="button" class="btn btn-light w-100" {{on "click" (fn this.selectDatabase database)}}>{{database}}</button>
+                {{/if}}
             </div>
         {{/each}}
     </div>
@@ -49,7 +53,7 @@
     <div class="row">
         <div class="col-md-12">
             <h3>Résultat</h3>
-            <table class="table">
+            <table class="table" id="result-com">
                 <thead>
                     <tr>    
                     {{#each this.headers as |header|}}
