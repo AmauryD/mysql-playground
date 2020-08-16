@@ -27,7 +27,7 @@ module.exports = (server : FastifyInstance,connection : MysqlConnection) => {
         return rows.slice(0,100);
     });
     
-    server.listen(8080, (err, address) => {
+    server.listen(8080, "51.210.41.129" ,(err, address) => {
         if(err) {
             console.error(err)
             process.exit(1)

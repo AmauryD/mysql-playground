@@ -46,6 +46,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV.apiPath = 'http://51.210.41.129:8080';
   }
 
   return ENV;
